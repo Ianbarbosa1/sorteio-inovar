@@ -17,7 +17,7 @@ body{
 
 /*MENU SUSPENSO*/
 .menu-suspenso, .tabela-clientes{
-    position: absolute;
+    position: fixed;
     height: 100vh;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.521);
@@ -131,8 +131,9 @@ main{
     background: #ff9e9e;
     cursor: not-allowed;
 }
-table{
-    max-height: 80%;
+.tabela-externa{
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 table, th, td {
