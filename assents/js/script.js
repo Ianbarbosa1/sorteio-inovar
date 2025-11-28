@@ -71,7 +71,7 @@ async function SalvarDados(e) {
         alert("Preencha todos os campos!");
         return;
     }
-    else if (nome.length < 3){
+    else if (nome.length < 10){
         alert("Insira o nome completo!");
         return;
     }
@@ -103,16 +103,15 @@ async function SalvarDados(e) {
 
         alert(`Número ${numeroEscolhido} reservado com sucesso!`);
 
-        // Fecha o formulário
+       
         document.querySelector('.formulario').style.display = "none";
+        
 
-        // Marca o número como ocupado na interface
         const el = document.getElementById(`num_${numeroEscolhido}`);
         if (el) {
             el.classList.add("ocupado");
         }
 
-        // Limpa campos
         document.querySelector('#nome').value = '';
         document.querySelector('#numero').value = '';
 
