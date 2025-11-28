@@ -7,13 +7,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="website icon" type="png" href="./Assents/imagens/logo-inovar.jpg">
     <title>Sorteio Bazar Inovar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./assents/css/estilos.css">
     <link rel="stylesheet" href="./assents/css/responsivo.css">
 </head>
 
 <body>
+
+    <article class="formulario">
+        <section class="formulario-interno">
+            <img src="./assents/imagens/fechar-blue.svg" alt="fechar" class="fechar-form">
+    
+            <form> 
+                <h1>Preenchimento dos Dados</h1>
+                
+                <div class="preenchimento">
+                    <label>Nome do Cliente:</label>
+                    <input type="text" required autocomplete="off" placeholder="Nome Completo" id="nome">  
+                </div>
+
+                <div class="preenchimento">
+                    <label>Número do Cliente:</label>
+                    <input type="number" required autocomplete="off" placeholder="Número com DDD" id="numero">  
+                </div>
+
+                <button id="botao" type="button">Reservar</button>
+            </form>
+        </section>
+    </article>
+
     <article class="menu-suspenso">
         <img src="./assents/imagens/fechar.svg" alt="fechar" class="fechar">
         <p id="btnLimpar" title="Liberar todos os números ocupados?">LIBERAR NÚMEROS</p>
@@ -26,22 +49,21 @@
            <table>
             <thead>
                 <tr>
-                    <th>Cliente</th>
-                    <th>Número</th>
+                    <th>NÚMERO</th>
+                    <th class="nome_clientes">NOME</th>
+                    <th>TELEFONE</th>
                 </tr>
             </thead>
             <tbody id="tabelaEscolhas"></tbody>
         </table> 
         </section>
-        
-
     </article>
 
     <header>
         <img src="./assents/imagens/menu.svg" alt="menu" class="menu-hamburguer" title="Menu">
         <nav class="menu">
             <div class="titulo">
-                <h1>SORTEIO INOVAR</h1>
+                <h1>FIM DE ANO PREMIADO</h1>
                 <nav class="barra"></nav>
             </div>
 

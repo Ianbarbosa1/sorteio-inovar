@@ -5,7 +5,7 @@
     font-family: "Quicksand", sans-serif;
 }
 /*DIVs FLEX*/
-.menu-suspenso, .tabela-clientes, header, .titulo, .menu, .marque, main, .num{
+.formulario, .formulario-interno, form, .preenchimento, .menu-suspenso, .tabela-clientes, header, .titulo, .menu, .marque, main, .num{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,8 +15,8 @@ body{
     background-color: aliceblue;
 }
 
-/*MENU SUSPENSO*/
-.menu-suspenso, .tabela-clientes{
+/*FORMULÁRIO - MENU SUSPENSO - TABELA*/
+.formulario, .menu-suspenso, .tabela-clientes{
     position: fixed;
     height: 100vh;
     width: 100%;
@@ -48,6 +48,94 @@ body{
     }
 }
 
+.formulario-interno{
+    flex-direction: column;
+    background-color: aliceblue;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 15px;
+}
+form{
+    flex-direction: column;
+    gap: 20px;
+    & h1 {
+        font-weight: 600;
+        font-size: 22px;
+        color: #3a4e67;
+        font-family: "Montserrat", sans-serif;
+    }
+    & button{
+        padding: 5px 10px;
+        border: 1px solid transparent;
+        background-color: #C1121F;
+        color: aliceblue;
+        border-radius: 5px;
+        font-size: 17px;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        &:hover{
+            background-color: aliceblue;
+            color: #C1121F;
+            border: 1px solid #C1121F;
+        }
+    }
+}
+.preenchimento{
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    & label{
+        font-size: 18px;
+        font-weight: 500;
+        color: gray;
+        margin-bottom: 5px;
+    }
+    & input{
+        width: 300px;
+        height: 30px;
+        border-radius: 3px;
+        border: 1px solid gray;
+        padding: 5px;
+        outline: none;
+        font-size: 17px;
+    }
+    & input::placeholder{
+        color: lightgray;
+    }
+}
+
+/*TABELA DOS CLIENTES CADASTRADOS*/
+.tabela-externa{
+    max-height: 500px;
+    overflow-y: auto;
+}
+table{
+    border-collapse: collapse;
+    width: 500px;
+    background-color: aliceblue;
+    text-align: center;
+    border-radius: 3px;
+}
+table, th, td{
+    border: 1px solid gray;
+    padding: 5px;
+}
+th{
+    color: #3a4e67;
+    font-size: 16px;
+    font-weight: 600;
+}
+td{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: rgb(65, 62, 62);
+    font-size: 17px;
+}
+.nome_clientes{
+    width: 250px;
+}
+
+/*PARTE INICIAL VISIVEL*/
 header{
     flex-direction: column;
     background-color: aliceblue;
@@ -65,12 +153,13 @@ header{
     & h1{
        font-size: 36px;
         color: #3a4e67;
-        font-weight: 700; 
+        font-weight: 700;
+        text-align: center;
     }
     & .barra{
         width: 150px;
         height: 5px;
-        background-color: #C1121F;
+        background-color: #3a4e67;
         border-radius: 2px;
     }
     
@@ -79,7 +168,7 @@ header{
     flex-direction: column;
 }
 marquee{
-    background-color: #3a4e67;
+    background-color: #C1121F;
     width: 100%;
     border-radius: 3px;
 }
@@ -130,30 +219,4 @@ main{
 .num.ocupado {
     background: #ff9e9e;
     cursor: not-allowed;
-}
-.tabela-externa{
-    max-height: 500px;
-    overflow-y: auto;
-}
-
-table, th, td {
-    border-collapse: collapse;
-    height: 35px;
-    width: 350px;
-    font-size: 16px;
-    background-color: aliceblue;
-    text-align: center;
-    border-radius: 3px;
-    border: 1px solid gray;
-}
-
-th{
-    color: #3a4e67;
-    font-size: 18px;
-    font-weight: 500;
-}
-td{
-    font-family: "Merriweather Sans", sans-serif;
-    font-weight: 200;
-    color: rgb(65, 62, 62);
 }

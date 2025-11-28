@@ -43,6 +43,9 @@ function atualizarEstado() {
     });
 }
 
+let numeroEscolhido = null;
+let formulario = document.querySelector('.formulario');
+
 function reservarNumero(n) {
     const el = document.getElementById(`num_${n}`);
     if (el.classList.contains("ocupado")) {
@@ -50,18 +53,75 @@ function reservarNumero(n) {
         return;
     }
 
-    const nome = prompt("Digite seu nome para reservar o número:");
-    if (!nome) return;
+    numeroEscolhido = n; 
 
-    const numeroCliente = prompt("Digite o número de telefone do cliente:");
-    if (!numeroCliente) return;
+    formulario.style.display = 'flex';
+}
 
-    set(ref(db, `sorteio/${n}`), { 
-        nome,
-        numeroCliente
-    });
+let botao = document.querySelector('#botao');
+botao.addEventListener('click', SalvarDados)
 
-    alert(`Número ${n} reservado com sucesso!`);
+async function SalvarDados(e) {
+    e.preventDefault(); // impede recarregar a página
+
+    const nome = document.querySelector('#nome').value.trim();
+    const numeroCliente = document.querySelector('#numero').value.trim();
+
+    if (!nome || !numeroCliente) {
+        alert("Preencha todos os campos!");
+        return;
+    }
+    else if (nome.length < 3){
+        alert("Insira o nome completo!");
+        return;
+    }
+    else if (numeroCliente.length !== 11  ){
+        alert("Insira um número de cliente válido!");
+        return;
+    }
+
+    // Evita múltiplos cliques
+    botao.disabled = true;
+
+    const caminho = ref(db, "sorteio/" + numeroEscolhido);
+
+    try {
+        // Verifica se o número já foi reservado por outra pessoa nesse meio tempo
+        const snapshot = await get(caminho);
+
+        if (snapshot.exists()) {
+            alert(`O número ${numeroEscolhido} já foi escolhido por outra pessoa!`);
+            botao.disabled = false;
+            return;
+        }
+
+        // Envia para o Firebase
+        await set(caminho, {
+            nome: nome,
+            numeroCliente: numeroCliente
+        });
+
+        alert(`Número ${numeroEscolhido} reservado com sucesso!`);
+
+        // Fecha o formulário
+        document.querySelector('.formulario').style.display = "none";
+
+        // Marca o número como ocupado na interface
+        const el = document.getElementById(`num_${numeroEscolhido}`);
+        if (el) {
+            el.classList.add("ocupado");
+        }
+
+        // Limpa campos
+        document.querySelector('#nome').value = '';
+        document.querySelector('#numero').value = '';
+
+    } catch (err) {
+        console.error(err);
+        alert("Erro ao reservar!");
+    }
+
+    botao.disabled = false;
 }
 
 function carregarTabela() {
@@ -79,11 +139,13 @@ function carregarTabela() {
 
         numerosOrdenados.forEach(num => {
             const nome = dados[num].nome;
+            const numeroCliente = dados[num].numeroCliente; // <-- ADICIONADO
 
             tabela.innerHTML += `
                 <tr>
-                    <td>${nome}</td>
                     <td>${num}</td>
+                    <td>${nome}</td>
+                    <td>${numeroCliente}</td>
                 </tr>
             `;
         });
@@ -105,11 +167,13 @@ let AberturaMenu = document.querySelector('.menu-hamburguer');
 let abrirTabela = document.querySelector('.tabela');
 let fechar = document.querySelector('.fechar');
 let fecharT = document.querySelector('.fecharT');
+let fecharForm = document.querySelector('.fechar-form');
 
 abrirTabela.addEventListener('click', AbrirClientes)
 AberturaMenu.addEventListener('click', Abrir)
 fechar.addEventListener('click', Fechar)
 fecharT.addEventListener('click', FecharC)
+fecharForm.addEventListener('click', FecharFormulario)
 
 function Abrir(){
     menuSuspenso.style.display = 'flex';
@@ -123,6 +187,10 @@ function AbrirClientes(){
 
 function FecharC(){
     tabelaClientes.style.display = 'none';
+}
+
+function FecharFormulario(){
+    formulario.style.display = 'none';
 }
 
 carregarNumeros();

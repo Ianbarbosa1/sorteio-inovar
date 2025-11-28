@@ -1,8 +1,24 @@
  @media screen and (min-width: 350px) and (max-width: 600px){
-
+    /*TABELA DE CLIENTES*/
+    table{
+        width: 360px;;
+    }
+    th{
+        font-size: 14px;
+    }
+    td{
+        font-size: 12px;
+        padding: 5px 0px;
+    }
+    .nome_clientes{
+        width: 150px;
+    }
+    /*CARROSSEL INOVAR*/
     .marque{
         gap: 10px;
     }
+
+    /*ESTRUTURA DOS NUMEROS*/
     main{
         padding: 40px 10px;
     }
