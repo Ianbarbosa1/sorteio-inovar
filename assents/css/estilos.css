@@ -59,7 +59,7 @@ form{
     flex-direction: column;
     gap: 20px;
     & h1 {
-        font-weight: 600;
+        font-weight: 700;
         font-size: 22px;
         color: #3a4e67;
         font-family: "Montserrat", sans-serif;

@@ -61,8 +61,9 @@ function reservarNumero(n) {
 let botao = document.querySelector('#botao');
 botao.addEventListener('click', SalvarDados)
 
+
 async function SalvarDados(e) {
-    e.preventDefault(); // impede recarregar a página
+    e.preventDefault();
 
     const nome = document.querySelector('#nome').value.trim();
     const numeroCliente = document.querySelector('#numero').value.trim();
@@ -80,13 +81,11 @@ async function SalvarDados(e) {
         return;
     }
 
-    // Evita múltiplos cliques
     botao.disabled = true;
 
     const caminho = ref(db, "sorteio/" + numeroEscolhido);
 
     try {
-        // Verifica se o número já foi reservado por outra pessoa nesse meio tempo
         const snapshot = await get(caminho);
 
         if (snapshot.exists()) {
@@ -95,7 +94,6 @@ async function SalvarDados(e) {
             return;
         }
 
-        // Envia para o Firebase
         await set(caminho, {
             nome: nome,
             numeroCliente: numeroCliente
@@ -121,7 +119,20 @@ async function SalvarDados(e) {
     }
 
     botao.disabled = false;
+
+    function EnviarWhats(){
+        let url = 'http://wa.me/55' + numeroCliente + '?text='
+            + '*FIM DE ANO PREMIADO*' + '%0a'
+            + 'Parabéns! Você está participando do sorteio do Bazar Inovar' + '%0a'
+            + 'O sorteio será realizado no dia 30/12/2025.' + '%0a'
+            + 'Consulte o link para saber mais informações sobre quais serão os premios!' + '%0a'
+            + 'link do sorteio' + '%0a'
+        window.open(url, '_blank').focus()
+    }
+
+    EnviarWhats()
 }
+
 
 function carregarTabela() {
     const tabela = document.getElementById("tabelaEscolhas");
