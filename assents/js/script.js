@@ -126,7 +126,7 @@ async function SalvarDados(e) {
             + 'Parabéns! Você está participando do sorteio do Bazar Inovar' + '%0a'
             + 'O sorteio será realizado no dia 30/12/2025.' + '%0a'
             + 'Consulte o link para saber mais informações sobre quais serão os premios!' + '%0a'
-            + 'link do sorteio' + '%0a'
+            + 'https://sl1nk.com/Fim-de-Ano-Premiado' + '%0a'
         window.open(url, '_blank').focus()
     }
 
