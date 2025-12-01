@@ -122,7 +122,7 @@ async function SalvarDados(e) {
 
     function EnviarWhats(){
         let url = 'http://wa.me/55' + numeroCliente + '?text='
-            + '*FIM DE ANO PREMIADO*' + '%0a'
+            + '*FIM DE ANO PREMIADO BAZAR INOVAR*' + '%0a'
             + 'Parabéns! Você está participando do sorteio do Bazar Inovar' + '%0a'
             + 'O sorteio será realizado no dia 30/12/2025.' + '%0a'
             + 'Consulte o link para saber mais informações sobre quais serão os premios!' + '%0a'
