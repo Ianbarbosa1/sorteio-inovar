@@ -1,11 +1,43 @@
 @media screen and (min-width: 350px) and (max-width: 599px){
-
+    .menu, .numeros, .tabela{
+        width: 97%;
+    }
+    .titulo{
+        & h1{
+            font-size: 20px;
+        }
+        & .barra{
+            height: 3px;
+        }
+    }
+    table, th, td{
+        padding: 3px;
+    }
+    th{
+        font-size: 12px;
+    }
+    td{
+        font-size: 12px;
+    }
+    #numeros_cl{
+        width: 15px;
+    }
+    #nome_cl{
+        width: 100%;
+    }
+    #telefone_cl{
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 600px) and (max-width: 999px){
-    
+    .menu, .numeros, .tabela{
+        width: 95%;
+    }
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1499px){
-    
+    .menu, .numeros, .tabela{
+        width: 1000px;
+    }
 }

@@ -212,7 +212,7 @@ body{
     & .barra{
         width: 100%;
         height: 5px;
-        background-color: #3a4e67;
+        background-image: linear-gradient(to right, #3a4e67, #e4c78c, #F9FAFB );
     }
 }
 .icone-menu{

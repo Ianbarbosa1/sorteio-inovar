@@ -224,16 +224,11 @@ function mostrarResultados(resultados) {
                     <td>${cliente.numero}</td>
                     <td>${cliente.nome}</td>
                     <td>${cliente.telefone}</td>
-                    <td id="alteracao"> 
+                    <td class="alteracao"> 
                         <img src="./assents/imagens/editar.svg" alt="editar" title="editar"> 
-                        <img 
-                            src="./assents/imagens/deletar.svg" 
-                            title="deletar" 
-                            onclick="excluirCliente(${cliente.numero})"
-                        >
+                        <img src="./assents/imagens/deletar.svg" title="deletar" onclick="excluirCliente(${cliente.numero})">
                     </td>
-                </tr>
-        `;
+                </tr>`;
     });
 }
 
