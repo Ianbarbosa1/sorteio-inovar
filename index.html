@@ -2,99 +2,117 @@
 <html lang="pt-BR">
 
 <head>
-    <meta name="description" content="Sorteio Inovar, Utilizado para fazer inserção de dados dos clientes."/>
+    <meta name="description" content="Sorteio Inovar, Utilizado para fazer inserção de dados dos clientes." />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="website icon" type="png" href="./assents/imagens/logo .png">
-    <title>Sorteio Bazar Inovar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <title>Painel Administrador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./assents/css/estilos.css">
     <link rel="stylesheet" href="./assents/css/responsivo.css">
 </head>
 
 <body>
+    <aside id="aviso" class="aviso"></aside>
 
-    <article class="formulario">
+    <article class="formulario" id="formulario">
         <section class="formulario-interno">
-            <img src="./assents/imagens/fechar-blue.svg" alt="fechar" class="fechar-form">
-    
-            <form> 
-                <h1>DADOS DO CLIENTE</h1>
-                
-                <div class="preenchimento">
-                    <label>Nome do Cliente:</label>
-                    <input type="text" required autocomplete="off" placeholder="Nome Completo" id="nome">  
-                </div>
+            <img src="./assents/imagens/fechar-blue.svg" alt="fechar" class="fechar" onclick="FecharFormulario()">
 
-                <div class="preenchimento">
-                    <label>Número do Cliente:</label>
-                    <input type="number" required autocomplete="off" placeholder="Número com DDD" id="numero">  
-                </div>
-
-                <button id="botao" type="button">Reservar</button>
-            </form>
-        </section>
-    </article>
-
-    <article class="menu-suspenso">
-        <img src="./assents/imagens/fechar.svg" alt="fechar" class="fechar">
-        <p id="btnLimpar" title="Liberar todos os números ocupados?">LIBERAR NÚMEROS</p>
-        <p title="Visualizar clientes cadastrados" class="tabela">TABELA COM CLIENTES</p>
-    </article>
-
-    <article class="tabela-clientes">
-        <img src="./assents/imagens/fechar.svg" alt="fechar" class="fecharT">
-        <section class="tabela-externa">
-           <table>
-            <thead>
-                <tr>
-                    <th>NÚMERO</th>
-                    <th class="nome_clientes">NOME</th>
-                    <th>TELEFONE</th>
-                </tr>
-            </thead>
-            <tbody id="tabelaEscolhas"></tbody>
-        </table> 
-        </section>
-    </article>
-
-    <header>
-        <img src="./assents/imagens/menu.svg" alt="menu" class="menu-hamburguer" title="Menu">
-        <nav class="menu">
-            <div class="titulo">
-                <h1>FIM DE ANO PREMIADO</h1>
-                <nav class="barra"></nav>
+            <div class="containerNumero">
+                <img src="./assents/imagens/estrela.png" alt="estrela">
+                <p id="numeroEscolhido"></p>
             </div>
 
-            <marquee behavior="scroll" direction="right" scrollamount="5">
-                <div class="marque">
-                    <img src="./assents/imagens/natal.svg" alt="natal">
-                    <h2>Bazar Inovar</h2>
-                    <img src="./assents/imagens/natal.svg" alt="natal">
-                    <h2>Bazar Inovar</h2>
-                    <img src="./assents/imagens/natal.svg" alt="natal">
-                    <h2>Bazar Inovar</h2>
-                    <img src="./assents/imagens/natal.svg" alt="natal">
-                    <h2>Bazar Inovar</h2>
-                    <img src="./assents/imagens/natal.svg" alt="natal">
-                    <h2>Bazar Inovar</h2>
-                    <img src="./assents/imagens/natal.svg" alt="natal">
-                    <h2>Bazar Inovar</h2>
-                    <img src="./assents/imagens/natal.svg" alt="natal">
-                    <h2>Bazar Inovar</h2>
-                    <img src="./assents/imagens/natal.svg" alt="natal">
-                </div>
-            </marquee>
-        </nav>
-    </header>
+            <div class="preenchimento">
+                <label>NOME:</label>
+                <input type="text" required autocomplete="off" placeholder="Maria Beatriz" id="nome">
+            </div>
+
+            <div class="preenchimento">
+                <label>NÚMERO:</label>
+                <input type="number" required autocomplete="off" placeholder="21998382523" id="numero">
+            </div>
+
+            <button id="reserva" type="button">RESERVAR</button>
+
+            <fieldset class="obs">
+                <legend>OBSERVAÇÕES</legend>
+                <p>É obrigatório colocar nome e sobrenome no cadastro.</p>
+                <p>É obrigatório inserir o DDD do número do cliente.</p>
+            </fieldset>
+        </section>
+    </article>
+
+    <article class="editor" id="editor">
+        <section class="formulario-interno">
+            <img src="./assents/imagens/fechar-blue.svg" alt="fechar" class="fechar" onclick="fecharEditor()">
+
+            <div class="preenchimento">
+                <label>NOME:</label>
+                <input type="text" required autocomplete="off" placeholder="Maria Beatriz" id="novoNome">
+            </div>
+
+            <div class="preenchimento">
+                <label>NÚMERO:</label>
+                <input type="number" required autocomplete="off" placeholder="21998382523" id="novoNumero">
+            </div>
+
+            <button id="edicao" type="button">EDITAR</button>
+        </section>
+    </article>
+
+    <article class="container-menu-lateral" id="cml">
+        <section class="menu-lateral">
+            <nav class="inicio">
+                <img src="./assents/imagens/logo .png" alt="logo" class="logo">
+                <img src="./assents/imagens/fechar-blue.svg" alt="fechar menu" class="fml" onclick="fecharMenuLateral()">
+            </nav>
+
+            <div class="componentes">
+                <h1>ATALHOS</h1>
+                <a id="btnLimpar">
+                    <img src="./assents/imagens/deletar.svg" alt="deletar">
+                    <p>Limpar Todo o Banco</p>
+                </a>
+            </div>
+        </section>
+    </article>
+
+    <nav class="menu">
+        <div class="titulo">
+            <h1>PAINEL ADMINISTRADOR</h1>
+            <nav class="barra"></nav>
+        </div>
+
+        <img src="./assents/imagens/menu.svg" alt="menu" class="icone-menu" onclick="abrirMenuLateral()">
+    </nav>
 
     <main>
-        <div id="numeros"></div>
-    </main>
+        <section id="numeros" class="numeros"></section>
 
+        <section id="tabela" class="tabela">
+            <div class="funcoes">
+                <input type="text" placeholder="Pesquisar Clientes" id="aba-pesquisa">
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th id="numeros-cl">NÚMERO</th>
+                        <th id="nome_cl">NOME</th>
+                        <th id="telefone_cl">TELEFONE</th>
+                        <th id="modificadores">MODIFICADORES</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaEscolhas"></tbody>
+            </table>
+        </section>
+    </main>
 </body>
 
 <script src="./assents/js/script.js" type="module"></script>
+<script src="./assents/js/ui.js"></script>
 
 </html>
