@@ -5,7 +5,7 @@
     font-family: "Roboto", 'Segoe UI';
     text-decoration: none;
     transition: all 0.8s ease;
-
+    scroll-behavior: smooth;
 }
 /*DIVs FLEX*/
 body, .formulario, .formulario-interno, .containerNumero, .preenchimento, .editor, .inicio, main, .numeros, .num, .funcoes, .alteracao{
