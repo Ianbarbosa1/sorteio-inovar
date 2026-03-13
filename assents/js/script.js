@@ -61,6 +61,7 @@ function reservarNumero(n) {
     const el = document.getElementById(`num_${n}`);
     if (el.classList.contains("ocupado")) {
         aviso("Este número já foi reservado!", 1);
+        offAviso();
         return;
     }
 
@@ -307,13 +308,13 @@ window.excluirCliente = function (id) {
 /*LIMPAR O BANCO*/
 document.getElementById("btnLimpar").onclick = () => {
     const senha = prompt("Digite a senha admin:");
-    if (senha !== 29042023) {
-        aviso("Digite a senha correta!", 0);
+    if (senha == 29042023) {
+        remove(ref(db, "sorteio"));
+        aviso("Todos os dados do banco foram deletados!!!", 1);
         offAviso();
     }
     else{
-        remove(ref(db, "sorteio"));
-        aviso("Todos os dados do banco foram deletados!!!", 1);
+        aviso("Digite a senha correta!", 0);
         offAviso();
     }
 };
