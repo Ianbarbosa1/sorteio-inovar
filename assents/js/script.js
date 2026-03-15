@@ -127,7 +127,7 @@ export async function SalvarDados(e) {
         offAviso();
     }
 
-    function EnviarWhats() {
+    /*function EnviarWhats() {
         let url = 'http://wa.me/55' + numeroCliente + '?text='
             + '*FIM DE ANO PREMIADO BAZAR INOVAR*' + '%0a'
             + 'Parabéns! Você está participando do sorteio do Bazar Inovar' + '%0a'
@@ -137,7 +137,7 @@ export async function SalvarDados(e) {
         window.open(url, '_blank').focus()
     }
 
-    EnviarWhats()
+    EnviarWhats()*/
 }
 
 

@@ -2,6 +2,9 @@
     .menu, .numeros, .tabela{
         width: 97%;
     }
+    .menu-lateral{
+        width: 230px;
+    }
     .titulo{
         & h1{
             font-size: 20px;
@@ -9,6 +12,10 @@
         & .barra{
             height: 3px;
         }
+    }
+    .tabela{
+        max-height: 90vh;
+        margin: 30px;
     }
     table, th, td{
         padding: 3px;
