@@ -5,6 +5,23 @@
     .menu-lateral{
         width: 230px;
     }
+
+    .funcoes{
+        & input{
+            padding: 10px;
+            width: 300px;
+        }
+    }
+    .lupa{
+        position: absolute;
+        padding: 6px 9px;
+        margin-left: 256px;
+        margin-top: 4px;
+        & img{
+            height: 43px;
+            border-radius: 10px;
+        }
+    }
     .titulo{
         & h1{
             font-size: 20px;
