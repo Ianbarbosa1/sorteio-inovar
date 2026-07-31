@@ -133,7 +133,7 @@ export async function SalvarDados(e) {
             + 'Parabéns! Você está participando do sorteio do Bazar Inovar' + '%0a'
             + 'O sorteio será realizado no dia 28/08/2026.' + '%0a'
             + 'Consulte o link para saber mais informações sobre o sorteio!' + '%0a'
-            + 'Site Inovar: https://bazar-inovar.github.io/Fim-de-Ano-Premiado/' + '%0a'
+            + 'Site Inovar: https://bazar-inovar.github.io/Sorteio-Bazar-Inovar/' + '%0a'
         window.open(url, '_blank').focus()
     }
 
