@@ -131,7 +131,7 @@ export async function SalvarDados(e) {
         let url = 'http://wa.me/55' + numeroCliente + '?text='
             + '*SORTEIO DE ANIVERSÁRIO 2026 BAZAR INOVAR*' + '%0a'
             + 'Parabéns! Você está participando do sorteio do Bazar Inovar' + '%0a'
-            + 'O sorteio será realizado no dia 28/08/2025.' + '%0a'
+            + 'O sorteio será realizado no dia 28/08/2026.' + '%0a'
             + 'Consulte o link para saber mais informações sobre o sorteio!' + '%0a'
             + 'Site Inovar: https://bazar-inovar.github.io/Fim-de-Ano-Premiado/' + '%0a'
         window.open(url, '_blank').focus()
