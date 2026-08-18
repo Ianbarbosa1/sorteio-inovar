@@ -132,9 +132,9 @@ export async function SalvarDados(e) {
             + '*Parabéns! você está participando do sorteio do Bazar Inovar*' + '%0a'
             + 'O sorteio será realizado no dia 28/08/2026.' + '%0a'
             + 'Consulte o link para saber mais informações sobre o sorteio!' + '%0a'
-            + '👉🏻 Site Inovar: https://bazar-inovar.github.io/Sorteio-Bazar-Inovar/' + '%0a'
-            + '👉🏻 Instagram: https://www.instagram.com/bazar.inovar/' + '%0a'
-            + '🤞🏻 *Boa Sorte!!!*' + '%0a'
+            + '👉 Site Inovar: https://bazar-inovar.github.io/Sorteio-Bazar-Inovar/' + '%0a'
+            + '👉 Instagram: https://www.instagram.com/bazar.inovar/' + '%0a'
+            + '🤞 *Boa Sorte!!!*' + '%0a'
         window.open(url, '_blank').focus()
     }
 
