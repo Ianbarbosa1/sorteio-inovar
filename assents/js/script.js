@@ -131,9 +131,11 @@ export async function SalvarDados(e) {
         let url = 'http://wa.me/55' + numeroCliente + '?text='
             + '*Parabéns! você está participando do sorteio do Bazar Inovar*' + '%0a'
             + 'O sorteio será realizado no dia 28/08/2026.' + '%0a'
+            + '%0a'
             + 'Consulte o link para saber mais informações sobre o sorteio!' + '%0a'
             + 'Site Inovar: https://bazar-inovar.github.io/Sorteio-Bazar-Inovar/' + '%0a'
-            + 'Instagram: https://www.instagram.com/bazar.inovar/' + '%0a'
+            + 'Instagram: https://www.instagram.com/bazar.inovar/' + '%0a´'
+            + '%0a'
             + '*Boa Sorte!!!*' + '%0a'
         window.open(url).focus()
     }
