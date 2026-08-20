@@ -274,8 +274,7 @@ main{
 /*TABELA DOS CLIENTES CADASTRADOS*/
 .tabela{
     width: 1500px;
-    max-height: 1000px;
-    overflow-y: auto;
+    height: 100%;
     display: grid;
     grid-template: auto auto / auto;
     place-items: stretch center;
@@ -286,6 +285,7 @@ main{
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #374151;
+    
     & input{
         font-size: 17px;
         padding: 10px;
@@ -293,7 +293,6 @@ main{
         background-color: transparent;
         width: 350px;
         border: 2px solid #3a4e67;
-        z-index: +1;
         border-radius: 10px;
         color: #374151;
     }
