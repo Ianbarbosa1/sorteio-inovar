@@ -264,6 +264,7 @@ main{
 .num.ocupado {
     background-color: #a60002;
     cursor: not-allowed;
+    transition: none;
     &:hover{
         color: #F9FAFB;
         border: none;
@@ -282,6 +283,7 @@ main{
 }
 .funcoes{
     width: 100%;
+    justify-content: space-between;
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #374151;
@@ -296,15 +298,10 @@ main{
         border-radius: 10px;
         color: #374151;
     }
-}
-.lupa{
-    position: absolute;
-    padding: 6px 9px;
-    margin-left: 310px;
-    margin-top: 4px;
-    & img{
-        height: 43px;
-        border-radius: 10px;
+    & p{
+        font-size: 17px;
+        color: #374151;
+        font-weight: 500;
     }
 }
 table{

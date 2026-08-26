@@ -8,6 +8,7 @@
 
     .funcoes{
         & input{
+            font-size: 14px;
             padding: 10px;
             width: 300px;
         }
@@ -41,7 +42,7 @@
         font-size: 12px;
     }
     td{
-        font-size: 12px;
+        font-size: 13px;
     }
     #numeros_cl{
         width: 15px;

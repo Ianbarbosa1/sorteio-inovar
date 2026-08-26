@@ -15,6 +15,7 @@ export const db = getDatabase(app);
 let todosClientes = [];
 
 
+
 /*AVISOS (ATIVAÇÃO E DESATIVAÇÃO)*/
 let divAviso = document.querySelector('#aviso')
 function aviso(texto, cor){
@@ -28,15 +29,12 @@ function aviso(texto, cor){
     else{
         divAviso.style.background = '#ff2023'
     }
-}
-function offAviso(){
     setTimeout(() => {
         divAviso.style.zIndex = '-99'
         divAviso.style.opacity = '0'
         divAviso.style.transform ='translateY(0px)';
     }, 6000);
 }
-
 
 /*FUNÇÃO QUE CARREGA OS NÚMEROS NA TELA*/
 const numerosContainer = document.getElementById("numeros");
@@ -61,7 +59,6 @@ function reservarNumero(n) {
     const el = document.getElementById(`num_${n}`);
     if (el.classList.contains("ocupado")) {
         aviso("Este número já foi reservado!", 1);
-        offAviso();
         return;
     }
 
@@ -82,17 +79,14 @@ export async function SalvarDados(e) {
 
     if (!nome || !numeroCliente) {
         aviso("Preencha todos os campos!", 0);
-        offAviso();
         return;
     }
     else if (nome.length < 5) {
         aviso("Insira o nome completo do cliente!", 0);
-        offAviso();
         return;
     }
     else if (numeroCliente.length !== 11) {
         aviso("Insira um número de telefone válido!", 0);
-        offAviso();
         return;
     }
     const caminho = ref(db, "sorteio/" + numeroEscolhido);
@@ -101,7 +95,6 @@ export async function SalvarDados(e) {
         const snapshot = await get(caminho);
         if (snapshot.exists()) {
             aviso("Este número já foi escolhido por outra pessoa!", 0);
-            offAviso();
             botao.disabled = false;
             return;
         }
@@ -110,7 +103,6 @@ export async function SalvarDados(e) {
             numeroCliente: numeroCliente
         });
         aviso("Número cadastrado com sucesso!", 1);
-        offAviso();
         document.querySelector('.formulario').style.display = "none";
 
         const el = document.getElementById(`num_${numeroEscolhido}`);
@@ -124,7 +116,6 @@ export async function SalvarDados(e) {
     } catch (err) {
         console.error(err);
         aviso("Erro ao reservar número escolhido", 0);
-        offAviso();
     }
 
     function EnviarWhats() {
@@ -144,6 +135,7 @@ export async function SalvarDados(e) {
 }
 
 
+let inscritos = document.querySelector('#inscritos');
 /*CARREGA A TABELA EM TEMPO REAL PARA FICAR SEMPRE VISIVEL*/
 export function carregarTabela() {
     const tabela = document.getElementById("tabelaEscolhas");
@@ -176,6 +168,7 @@ export function carregarTabela() {
                     </td>
                 </tr>`;
         });
+        inscritos.innerHTML = `Qtd: ${todosClientes.length}`;
     });
 }
 
@@ -199,6 +192,7 @@ export function atualizarEstado() {
 
 /*FUNÇÕES DE PESQUISA DE CLIENTES JÁ CADASTRADOS*/
 let variavel = document.querySelector('#aba-pesquisa');
+
 variavel.addEventListener("input", () => {
     const valor = variavel.value.trim();
 
@@ -208,7 +202,6 @@ variavel.addEventListener("input", () => {
     }
     const resultados = pesquisarClientes(valor);
     mostrarResultados(resultados);
-
 });
 function pesquisarClientes(valor) {
     const busca = valor.toLowerCase();
@@ -218,9 +211,11 @@ function pesquisarClientes(valor) {
         cliente.numero.includes(busca)
     );
 }
+
 function mostrarResultados(resultados) {
     const tabela = document.getElementById("tabelaEscolhas");
-    tabela.innerHTML = "";
+    tabela.innerHTML = ""; 
+
     resultados.forEach(cliente => {
 
         tabela.innerHTML += `
@@ -261,7 +256,6 @@ function fazerEdicao(){
     
     if(novoNome.length >= 4 &&  novoNumero.length == 11){
         aviso("Os dados foram alterados!", 1);
-        offAviso();
         update(ref(db, "sorteio/" + id ), {
             nome: novoNome,
             numeroCliente: novoNumero
@@ -270,7 +264,6 @@ function fazerEdicao(){
     }
     else if(novoNome === '' & novoNumero.length == 11){
         aviso("Número de telefone alterado com sucesso!", 1);
-        offAviso();
         update(ref(db, "sorteio/" + id ), {
             numeroCliente: novoNumero
         })
@@ -278,7 +271,6 @@ function fazerEdicao(){
     }
     else if(novoNome.length >= 4 & novoNumero === ''){
         aviso("Nome alterado com sucesso!", 1);
-        offAviso();
         
         update(ref(db, "sorteio/" + id ), {
             nome: novoNome
@@ -287,7 +279,6 @@ function fazerEdicao(){
     }
     else{
         aviso("Verifique se os dados foram inseridos corretamente, pois ainda há divergencias nos dados inseridos!", 0);
-        offAviso();
     }
 }
 
@@ -299,11 +290,9 @@ window.excluirCliente = function (id) {
     if (senha == 29042023) {
         remove(cliente)
         aviso("O cliente foi removido com sucesso!!!", 1);
-        offAviso();
     }
     else {
         aviso("Senha incorreta", 0);
-        offAviso();
     }
 }
 
@@ -314,14 +303,11 @@ document.getElementById("btnLimpar").onclick = () => {
     if (senha == 29042023) {
         remove(ref(db, "sorteio"));
         aviso("Todos os dados do banco foram deletados!!!", 1);
-        offAviso();
     }
     else{
         aviso("Digite a senha correta!", 0);
-        offAviso();
     }
 };
-
 
 atualizarEstado()
 carregarTabela()
