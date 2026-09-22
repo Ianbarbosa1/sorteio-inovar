@@ -1,0 +1,207 @@
+*{
+    box-sizing: border-box;
+    font-family: "Montserrat", 'Segoe UI';
+    text-decoration: none;
+    scroll-behavior: smooth;
+    color: #3a4e67;
+}
+a{
+    text-decoration: none;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+/*DIVs FLEX*/
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    flex-direction: column;
+    background-color: #F9FAFB;
+}
+
+/*AVISOS AO USUÁRIO*/
+.aviso{
+    position: fixed;
+    border: 2px solid #F9FAFB;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    top: 100px;
+    z-index: -99;
+    color: #F9FAFB;
+    font-size: 16px;
+    opacity: 0;
+}
+
+/*FORMULÁRIO - MENU LATERAL, PAINEL EDITOR*/
+.formulario, .container-menu-lateral, .editor{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.521);
+    backdrop-filter: blur(2px);
+    display: none;
+}
+.formulario-interno{
+    width: 370px;
+    flex-direction: column;
+    background-color: #F9FAFB;
+    padding: 15px;
+    border-radius: 10px;
+    gap: 20px;
+
+    & button{
+        width: 100%;
+        padding: 10px 0px;
+        border: 1px solid transparent;
+        background-color: #3a4e67;
+        color: #F9FAFB;
+        cursor: pointer;
+        &:hover{
+            background-color: #F9FAFB;
+            color: #3a4e67;
+            border: 1px solid #3a4e67;
+        }
+    }
+    & i{
+        cursor: pointer;
+        font-size: 25px;
+        color: #a60002;
+    }
+    & .n{
+        color: #a60002;
+    }
+}
+
+/*MENU LATERAL*/
+.logo{
+    height: 80px;
+    filter: drop-shadow(5px 5px 5px gray);
+}
+.menu-lateral{
+    height: 100vh;
+    width: 350px;
+    background-color: #F9FAFB;
+    right: 0px;
+
+    & .inicio{
+        border-color: #3a4e67;
+    }
+    & i{
+        cursor: pointer;
+        font-size: 25px;
+        color: #a60002;
+    }
+}
+.componentes{
+    & h1{
+        color: #3a4e67;
+    }
+    & a{
+        color: #3a4e67;
+        cursor: pointer;
+
+        &:hover{
+            background-color: #37415123;
+        }
+    }
+}
+
+
+/*PARTE INICIAL VISIVEL*/
+.menu i{
+    font-size: 35px;
+    cursor: pointer;
+}
+.titulo{
+    & h1{
+        color: #3a4e67;
+    }
+    & .barra{
+        height: 5px;
+        background-image: linear-gradient(to right, #3a4e67, #e4c78c, #F9FAFB, #F9FAFB);
+    }
+}
+
+
+/*NUMEROS A SEREM ESCOLHIDOS*/
+.numeros {
+    grid-template-columns: repeat(10, 1fr);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    height: 70px;
+    width: 80px;
+    background-color:#3a4e67;
+    color: #F9FAFB;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover{
+        color: #3a4e67;
+        background-color: #F9FAFB;
+        border: 1px solid #3a4e67;
+    }
+}
+.num.ocupado {
+    background-color: #a60002;
+    cursor: not-allowed;
+    transition: none;
+
+    &:hover{
+        color: #F9FAFB;
+        border: none;
+    }
+}
+
+
+/*TABELA DOS CLIENTES CADASTRADOS*/
+.funcoes{
+    border: 1px solid #3a4e67;
+    
+    & input{
+        background-color: transparent;
+        border-color: #3a4e67;
+    }
+    & span{
+        border-color: #3a4e67;
+    }
+    & span i{
+        color: #a60002;
+    }
+}
+table{ 
+    text-align: center;
+}
+thead tr th{
+    color: #3a4e67 !important;
+}
+tbody tr td{
+    color: #3a4e67 !important;
+    font-weight: 500;
+}
+.alteracao{
+    display: flex;
+    justify-content: space-around;
+    & i{
+        font-size: 20px;
+        cursor: pointer;
+        color: #a60002;
+    }
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta name="description" content="Sorteio Inovar, Utilizado para fazer inserção de dados dos clientes." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="website icon" type="png" href="./assents/imagens/logo .png">
+    <title>Painel Administrador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./assents/css/estilos.css">
+    <link rel="stylesheet" href="./assents/css/responsivo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body class="container-fluid">
+    <aside id="aviso" class="aviso"></aside>
+
+    <article class="container-menu-lateral position-fixed top-0 z-2" id="cml">
+        <section class="menu-lateral position-absolute p-3">
+            <nav class="d-flex justify-content-between align-items-center border-bottom pb-2">
+                <img src="./assents/imagens/logo .png" alt="logo" class="logo rounded-circle">
+
+                <i class="bi bi-x-circle" onclick="fecharMenuLateral()"
+                title="fechar modal"></i>
+            </nav>
+
+            <div class="componentes mt-4 flex-column ">
+                <h1 class="fs-5 fw-semibold">ATALHOS</h1>
+                <a class="w-100 pt-1 pb-1 ps-1 gap-2 rounded-2 d-flex align-items-center" id="btnLimpar">
+                    <i class="bi bi-trash"></i>
+                    <p class="mb-0">Limpar Todo o Banco</p>
+                </a>
+
+                <a href="#tabela" class="w-100 pt-1 pb-1 ps-1 gap-2 rounded-2 d-flex align-items-center" onclick="fecharMenuLateral()">
+                    <i class="bi bi-table"></i>
+                    <p class="mb-0">Consultar Tabela</p>
+                </a>
+            </div>
+        </section>
+    </article>
+
+    <article class="formulario container-menu-lateral position-fixed top-0 z-2 justify-content-center align-items-center" id="formulario">
+        <section class="formulario-interno d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <nav class="d-flex gap-1">
+                    <p class="mb-0 fw-normal fs-6">NÚMERO:</p>
+                    <p class="n mb-0 fw-bolder fs-6" id="numeroEscolhido"></p>
+                </nav>
+
+                <i class="bi bi-x-circle" onclick="FecharFormulario()" title="fechar modal"></i>
+            </div>
+
+            <div class="form-floating w-100">
+                <input type="text" class="form-control" id="nome" autocomplete="off" placeholder="Nome">
+                <label for="nome">Nome</label>
+                <div id="nome" class="form-text">Coloque nome e sobrenome do cliente.</div>
+            </div>
+
+            <div class="form-floating w-100">
+                <input type="number" class="form-control" id="numero" autocomplete="off" placeholder="Número">
+                <label for="numero">Número</label>
+                <div id="numero" class="form-text">Ex: (21) 998382523. (Apenas números)</div>
+            </div>
+
+            <button id="reserva" class="btn" type="button">RESERVAR</button>
+        </section>
+    </article>
+
+    <article class="editor container-menu-lateral position-fixed top-0 z-2 justify-content-center align-items-center" id="editor">
+        <section class="formulario-interno d-flex flex-column gap-4">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <h1 class="fs-5 border-bottom">Editar Cliente</h1>
+
+                <i class="bi bi-x-circle" onclick="fecharEditor()" title="fechar modal"></i>
+            </div>
+
+            <div class="form-floating w-100">
+                <input type="text" class="form-control" id="novoNome" autocomplete="off" placeholder="Nome">
+                <label for="novoNome">Nome</label>
+            </div>
+
+            <div class="form-floating w-100">
+                <input type="number" class="form-control" id="novoNumero" autocomplete="off" placeholder="novoNumero">
+                <label for="numero">Número</label>
+            </div>
+
+            <button class="btn" id="edicao" type="button">EDITAR</button>
+        </section>
+    </article>
+
+    <nav class="menu container-fluid container-md pt-3 d-flex justify-content-between">
+        <div class="titulo">
+            <h1 class="fs-2">PAINEL ADMINISTRADOR</h1>
+            <nav class="barra rounded-1 w-100"></nav>
+        </div>
+
+        <i class="bi bi-list-stars" onclick="abrirMenuLateral()" title="menu"></i>
+    </nav>
+
+    <main class="container d-flex flex-column justify-content-center align-items-center pt-4 gap-4">
+        <section id="numeros" class="numeros container d-flex justify-content-center"></section>
+
+        <section id="tabela" class="tabela w-100 gap-2 mb-5">
+            <div class="funcoes d-flex align-items-center justify-content-between p-3 rounded-2 mb-2">
+                <div class="input-group w-50">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" class="form-control border-1" placeholder="Pesquisar cliente" aria-label="Username" aria-describedby="basic-addon1" id="aba-pesquisa">
+                </div>
+
+                <p id="inscritos" class="mb-0 fs-6 fw-medium"></p>
+            </div>
+
+            <table class="table table-hover table-bordered" id="table">
+                <thead>
+                    <tr>
+                        <th class="idCl">NÚMERO</th>
+                        <th>NOME</th>
+                        <th class="alteracao">MODIFICADORES</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabelaEscolhas"></tbody>
+            </table>
+        </section>
+    </main>
+</body>
+
+<script src="./assents/js/script.js" type="module"></script>
+<script src="./assents/js/ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>

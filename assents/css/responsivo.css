@@ -1,0 +1,5 @@
+@media (max-width: 576px) { 
+    .idCl, .alteracao{
+        padding: 8px 2px !important;
+    }
+}
