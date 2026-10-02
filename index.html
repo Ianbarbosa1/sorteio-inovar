@@ -17,13 +17,12 @@
 <body class="container-fluid">
     <aside id="aviso" class="aviso"></aside>
 
-    <article class="container-menu-lateral position-fixed top-0 z-2" id="cml">
+    <article class="container-menu-lateral position-fixed top-0 z-3" id="cml">
         <section class="menu-lateral position-absolute p-3">
             <nav class="d-flex justify-content-between align-items-center border-bottom pb-2">
                 <img src="./assents/imagens/logo .png" alt="logo" class="logo rounded-circle">
 
-                <i class="bi bi-x-circle" onclick="fecharMenuLateral()"
-                title="fechar modal"></i>
+                <i class="bi bi-x-circle" onclick="fecharMenuLateral()" title="fechar modal"></i>
             </nav>
 
             <div class="componentes mt-4 flex-column ">
@@ -41,7 +40,7 @@
         </section>
     </article>
 
-    <article class="formulario container-menu-lateral position-fixed top-0 z-2 justify-content-center align-items-center" id="formulario">
+    <article class="formulario container-menu-lateral position-fixed top-0 z-3 justify-content-center align-items-center" id="formulario">
         <section class="formulario-interno d-flex flex-column">
             <div class="d-flex justify-content-between align-items-center w-100">
                 <nav class="d-flex gap-1">
@@ -68,7 +67,7 @@
         </section>
     </article>
 
-    <article class="editor container-menu-lateral position-fixed top-0 z-2 justify-content-center align-items-center" id="editor">
+    <article class="editor container-menu-lateral position-fixed top-0 z-3 justify-content-center align-items-center" id="editor">
         <section class="formulario-interno d-flex flex-column gap-4">
             <div class="d-flex justify-content-between align-items-center w-100">
                 <h1 class="fs-5 border-bottom">Editar Cliente</h1>
@@ -92,7 +91,7 @@
 
     <nav class="menu container-fluid container-md pt-3 d-flex justify-content-between">
         <div class="titulo">
-            <h1 class="fs-2">PAINEL ADMINISTRADOR</h1>
+            <h1 class="fs-4">PAINEL ADMINISTRADOR</h1>
             <nav class="barra rounded-1 w-100"></nav>
         </div>
 
@@ -103,8 +102,8 @@
         <section id="numeros" class="numeros container d-flex justify-content-center"></section>
 
         <section id="tabela" class="tabela w-100 gap-2 mb-5">
-            <div class="funcoes d-flex align-items-center justify-content-between p-3 rounded-2 mb-2">
-                <div class="input-group w-50">
+            <div class="funcoes d-flex align-items-center justify-content-center justify-content-md-between flex-column flex-md-row  p-3 rounded-2 mb-2 gap-3">
+                <div class="input-group w-75">
                     <span class="input-group-text" id="basic-addon1">
                         <i class="bi bi-search"></i>
                     </span>
