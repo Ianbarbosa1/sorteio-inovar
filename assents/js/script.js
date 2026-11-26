@@ -242,7 +242,6 @@ window.abrirEditor = function(id, nome, numero){
     clienteId = id;
     name.value = nome;
     number.value = numero;
-    EnviarWhats(numero);
 }
 
 /*FECHAR O FORMULÁRIO DE EDIÇÃO DOS DADOS DO CLIENTE*/
@@ -250,9 +249,10 @@ function fecharEditor(){
     let containerEditor = document.querySelector('#editor')
     containerEditor.style.display = 'none'
 }
-let botaoEditor = document.querySelector('#edicao')
-botaoEditor.addEventListener('click', fazerEdicao)
-let botaoReenviar =
+let botaoEditor = document.querySelector('#edicao');
+let botaReenviar = document.querySelector('#reenviar');
+botaoEditor.addEventListener('click', fazerEdicao);
+botaoReenviar.addEventListener('Click', EnviarWhats(number);
 function fazerEdicao(){
     let id = clienteId;
     let novoNome = document.querySelector('#novoNome').value.trim();
