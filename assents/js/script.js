@@ -250,7 +250,7 @@ function fecharEditor(){
     containerEditor.style.display = 'none'
 }
 let botaoEditor = document.querySelector('#edicao');
-let botaReenviar = document.querySelector('#reenviar');
+let botaoReenviar = document.querySelector('#reenviar');
 botaoEditor.addEventListener('click', fazerEdicao);
 botaoReenviar.addEventListener('Click', EnviarWhats(numeroReenviar));
 let numeroReenviar = null;
