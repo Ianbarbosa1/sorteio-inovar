@@ -252,7 +252,8 @@ function fecharEditor(){
 let botaoEditor = document.querySelector('#edicao');
 let botaReenviar = document.querySelector('#reenviar');
 botaoEditor.addEventListener('click', fazerEdicao);
-botaoReenviar.addEventListener('Click', EnviarWhats(number);
+let numeroReenviar = null;
+botaoReenviar.addEventListener('Click', EnviarWhats(numeroReenviar);
 function fazerEdicao(){
     let id = clienteId;
     let novoNome = document.querySelector('#novoNome').value.trim();
@@ -275,6 +276,7 @@ function fazerEdicao(){
     }
     else if(novoNome.length >= 4 & novoNumero === ''){
         aviso("Nome alterado com sucesso!", 1);
+        numeroReenviar = novoNumero;
         
         update(ref(db, "sorteio/" + id ), {
             nome: novoNome
