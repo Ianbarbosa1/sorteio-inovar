@@ -104,6 +104,7 @@ export async function SalvarDados(e) {
         });
         aviso("Número cadastrado com sucesso!", 1);
         document.querySelector('.formulario').style.display = "none";
+        EnviarWhats(numeroCliente)
 
         const el = document.getElementById(`num_${numeroEscolhido}`);
         if (el) {
@@ -117,11 +118,10 @@ export async function SalvarDados(e) {
         console.error(err);
         aviso("Erro ao reservar número escolhido", 0);
     }
-    EnviarWhats()
 }
 
- function EnviarWhats() {
-        let url = 'http://wa.me/55' + numeroCliente + '?text='
+ function EnviarWhats(numero) {
+        let url = 'http://wa.me/55' + numero + '?text='
             + '*Parabéns! você está participando do sorteio do Bazar Inovar*' + '%0a'
             + 'O sorteio será realizado no dia 30/12/2026.' + '%0a'
             + '%0a'
@@ -131,7 +131,7 @@ export async function SalvarDados(e) {
             + '%0a'
             + '*Boa Sorte!!!*' + '%0a'
         window.location.href = url;;
-    }
+}
 
 
 let inscritos = document.querySelector('#inscritos');
@@ -241,7 +241,8 @@ window.abrirEditor = function(id, nome, numero){
     containerEditor.style.display = 'flex'
     clienteId = id;
     name.value = nome;
-    number.value = numero
+    number.value = numero;
+    EnviarWhats(numero);
 }
 
 /*FECHAR O FORMULÁRIO DE EDIÇÃO DOS DADOS DO CLIENTE*/
@@ -251,6 +252,7 @@ function fecharEditor(){
 }
 let botaoEditor = document.querySelector('#edicao')
 botaoEditor.addEventListener('click', fazerEdicao)
+let botaoReenviar =
 function fazerEdicao(){
     let id = clienteId;
     let novoNome = document.querySelector('#novoNome').value.trim();
