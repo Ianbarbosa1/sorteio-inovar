@@ -233,6 +233,7 @@ function mostrarResultados(resultados) {
 
 /*ALTERAÇÃO DO BANCO*/
 let containerEditor = document.querySelector('#editor');
+let modalReenviar = document.querySelector('#modal-reenvio');
 let clienteId = null;
 let name = document.querySelector('#novoNome');
 let number  = document.querySelector('#novoNumero');
@@ -250,10 +251,8 @@ function fecharEditor(){
     containerEditor.style.display = 'none'
 }
 let botaoEditor = document.querySelector('#edicao');
-let botaoReenviar = document.querySelector('#reenviar');
 botaoEditor.addEventListener('click', fazerEdicao);
-botaoReenviar.addEventListener('Click', EnviarWhats(numeroReenviar));
-let numeroReenviar = null;
+let numeroReenviar = '1';
 function fazerEdicao(){
     let id = clienteId;
     let novoNome = document.querySelector('#novoNome').value.trim();
@@ -266,6 +265,8 @@ function fazerEdicao(){
             numeroCliente: novoNumero
         })
         fecharEditor()
+        modalReenviar.style.display = 'flex';
+        numeroReenviar = novoNumero;
     }
     else if(novoNome === '' & novoNumero.length == 11){
         aviso("Número de telefone alterado com sucesso!", 1);
@@ -273,10 +274,11 @@ function fazerEdicao(){
             numeroCliente: novoNumero
         })
         fecharEditor()
+        modalReenviar.style.display = 'flex';
+        numeroReenviar = novoNumero;
     }
     else if(novoNome.length >= 4 & novoNumero === ''){
         aviso("Nome alterado com sucesso!", 1);
-        numeroReenviar = novoNumero;
         
         update(ref(db, "sorteio/" + id ), {
             nome: novoNome
@@ -286,7 +288,23 @@ function fazerEdicao(){
     else{
         aviso("Verifique se os dados foram inseridos corretamente, pois ainda há divergencias nos dados inseridos!", 0);
     }
+    console.log(numeroReenviar);
 }
+
+let botaoReenviar = document.querySelector('#reenviar');
+botaoReenviar.addEventListener('click', reenvio);
+function reenvio(){
+    let numero = numeroReenviar;
+    EnviarWhats(numero);
+    closeReenviar();
+}
+
+let botaoClose = document.querySelector('.NotEnviar');
+botaoClose.addEventListener('click', closeReenviar);
+function closeReenviar(){
+    modalReenviar.style.display = 'none';
+}
+
 
 
 /*EXCLUSÃO DO CLIENTE*/
