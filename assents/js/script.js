@@ -288,7 +288,6 @@ function fazerEdicao(){
     else{
         aviso("Verifique se os dados foram inseridos corretamente, pois ainda há divergencias nos dados inseridos!", 0);
     }
-    console.log(numeroReenviar);
 }
 
 let botaoReenviar = document.querySelector('#reenviar');
